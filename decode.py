@@ -9,14 +9,25 @@ ap.add_argument('-i', '--image', required=True, help="Image Path")
 args = vars(ap.parse_args())
 img_path = args['image']
 img = cv2.imread(img_path)
-clicked = False
-r = g = b = xpos = ypos = 0
-
 data = ""
 
-print(img)
+datalen = img[0][0][0]
+print("Data length: ", datalen)
 
-
-res = Image.fromarray(img,'RGB')
-res.save("result.jpg")
-res.show()
+bindataindex = 0
+for i in range(len(img)):
+    for j in range(len(img[i])):
+        for k in range(len(img[i][j])):
+            binary = str(np.binary_repr(img[i][j][k], width=8))
+            if i == 0 and j == 0 and k == 0 :
+                continue
+            data += binary[len(binary)-1]
+            bindataindex += 1
+            if(bindataindex == datalen):
+                break
+        if bindataindex == datalen : 
+            break
+    if bindataindex == datalen : 
+        break
+            
+print("Decoded Data : " ,data)

@@ -4,6 +4,7 @@ import argparse
 import numpy as np
 from PIL import Image
 
+
 ap = argparse.ArgumentParser()
 ap.add_argument('-i', '--image', required=True, help="Image Path")
 args = vars(ap.parse_args())
@@ -34,10 +35,39 @@ for i in range(len(img)):
     if(bindataindex == len(binData)):
         break
 
-print(img)
+
+
 res = Image.fromarray(img,'RGB')
 res.save("result.jpg")
 # res.show()
-print()
-print()
-print(np.array(res))
+
+
+
+# ============================= decode.py =============================
+datalen2 = img[0][0][0] * 8
+print(binData)
+bindataindex = 0
+data2 = ""
+bindata2 = ""
+print(data)
+for i in range(len(img)):
+    for j in range(len(img[i])):
+        for k in range(len(img[i][j])):
+            if i == 0 and j == 0 and k == 0 : 
+                continue
+            binary = str(np.binary_repr(img[i][j][k], width=8))
+            bindata2 += binary[7]
+            bindataindex += 1
+            if datalen2 == bindataindex : break
+        if datalen2 == bindataindex : break
+    if datalen2 == bindataindex : break
+print(data2, end="")
+# =================== converting back to original text ====================
+bindataindex = 0
+temp_data = ""
+for i in range(datalen2):
+    temp_data += bindata2[i]
+    if len(temp_data) == 8 :
+        data2 += chr(int(temp_data,2))
+        temp_data = ""
+print(data2)
