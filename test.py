@@ -14,27 +14,10 @@ r = g = b = xpos = ypos = 0
 
 data = "hello! this is user7R"
 
-# img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-
-# convert the array to numpy array
-# img = np.array(img, dtype=np.long)
-# img = np.array(img)
-# print(type(img))
-# conver a numpy array to binary format
-# img = img.tobinary()
-# print(img)
-
 binData = ''.join(format(ord(i), '08b') for i in data)
-
-print(binData)
-
-# ==============inserting data into the image==================
+# print(binData)
 img[0][0][0] = len(data)
-# for i in range(0, 5):
-#     print(img[0][i])
-
 bindataindex = 0
-
 for i in range(len(img)):
     for j in range(len(img[i])):
         for k in range(len(img[i][j])):
@@ -51,14 +34,10 @@ for i in range(len(img)):
     if(bindataindex == len(binData)):
         break
 
-print()
-# for i in range(0, 5):
-    # print(img[0][i])
-
+print(img)
 res = Image.fromarray(img,'RGB')
 res.save("result.jpg")
-res.show()
-# generating the result image
-
-
-
+# res.show()
+print()
+print()
+print(np.array(res))
