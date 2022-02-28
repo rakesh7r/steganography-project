@@ -39,7 +39,7 @@ for i in range(len(img)):
 
 res = Image.fromarray(img,'RGB')
 res.save("result.jpg")
-# res.show()
+res.show()
 
 
 
