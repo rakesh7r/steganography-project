@@ -3,10 +3,12 @@ import numpy as np
 from PIL import Image
 
 img = input("Enter image name(with extension) : ")
+# img = "colorpic.png"
 image = Image.open(img, 'r')
 newimg = image.copy()
 
 data = input("Enter data to be encoded: ")
+data +=  "0"
 
 if len(data) == 0: 
     raise Exception('Data is empty')
@@ -41,4 +43,4 @@ for i in range(width):
         break
 print(binData)    
 newimg.save("result.png")
-newimg.show()
+# newimg.show()

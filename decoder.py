@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 
-img = input("Enter image name(with extension) : ")
+# img = input("Enter image name(with extension) : ")
+img = "result.png"
 image = Image.open(img, 'r')
 newimg = image.copy()
 width, height = newimg.size
@@ -32,4 +33,4 @@ for i in range(len(data)):
     if len(temp_data) == 8 :
         text+= chr(int(temp_data,2))
         temp_data = ""
-print("encoded Text :" , text)
+print("encoded Text :" , text[0:len(text)-1])
