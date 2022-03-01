@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 from PIL import Image
+import os
+
 
 img = input("Enter image name(with extension) : ")
 # img = "colorpic.png"
@@ -41,6 +43,11 @@ for i in range(width):
             break
     if bindataindex >= len(binData):
         break
-print(binData)    
+# print(binData)    
+os.system("cls")
 newimg.save("result.png")
+print(" Data encoded Successfully... ")
+print(" Stego Image saved as result.png  ")
+print(" Decode the image using decoder.py ")
+print(" ========= Terminated ========= ")
 # newimg.show()
