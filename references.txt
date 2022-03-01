@@ -1,1 +1,0 @@
-Dataset : https://www.kaggle.com/adityabhndari/color-detection-data-set
