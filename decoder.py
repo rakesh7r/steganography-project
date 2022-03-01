@@ -3,8 +3,8 @@ import numpy as np
 from PIL import Image
 import os
 
-# img = input("Enter image name(with extension) : ")
-img = "result.png"
+img = input("Enter image name(with extension) : ")
+# img = "result.png"
 image = Image.open(img, 'r')
 newimg = image.copy()
 width, height = newimg.size
