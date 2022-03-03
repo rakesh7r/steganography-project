@@ -3,7 +3,6 @@ import numpy as np
 from PIL import Image
 import os
 
-
 img = input("Enter image name(with extension) : ")
 # img = "colorpic.png"
 image = Image.open(img, 'r')
@@ -20,7 +19,7 @@ binData = ''.join(format(ord(i), '08b') for i in data)
 bindataindex = 0
 
 width, height = newimg.size
-newimg.putpixel((width-1,height-1), (len(data), 0, 0))
+newimg.putpixel((width-1,height-1), (len(binData), 0, 0))
 
 for i in range(width):
     for j in range(height):
@@ -41,13 +40,13 @@ for i in range(width):
         newimg.putpixel((i, j), (int(r, 2), int(g, 2), int(b, 2)))
         if(i == width-1 and j == height-1):
             break
-    if bindataindex >= len(binData):
-        break
+    if bindataindex >= len(binData): break
+    
 # print(binData)    
-os.system("cls")
+# os.system("cls")
 newimg.save("result.png")
 print(" Data encoded Successfully... ")
 print(" Stego Image saved as result.png  ")
 print(" Decode the image using decoder.py ")
 print(" ========= Terminated ========= ")
-# newimg.show()
+newimg.show()

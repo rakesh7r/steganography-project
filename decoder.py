@@ -12,6 +12,7 @@ width, height = newimg.size
 datalen = newimg.getpixel((width-1,height-1))[0]
 index = 0
 data = ""
+
 for i in range(width):
     for j in range(height):
         r,g,b = newimg.getpixel((i, j))
@@ -19,12 +20,12 @@ for i in range(width):
         g = str(np.binary_repr(g, width=8))
         b = str(np.binary_repr(b, width=8))
         data += r[7]
-        if len(data) >= datalen*8: break
+        if len(data) >= datalen: break
         data +=g[7]
-        if len(data) >= datalen*8: break
+        if len(data) >= datalen: break
         data +=b[7]
-        if len(data) >= datalen*8: break
-    if len(data) == datalen * 8: break
+        if len(data) >= datalen: break
+    if len(data) == datalen : break
 
 # print(data)
 temp_data = ""
@@ -34,6 +35,6 @@ for i in range(len(data)):
     if len(temp_data) == 8 :
         text+= chr(int(temp_data,2))
         temp_data = ""
-os.system("cls")
+# os.system("cls")
 print("Decoded Text :" , text[0:len(text)-1])
 print(" Terminated ...")
